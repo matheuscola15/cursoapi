@@ -16,6 +16,15 @@ public class Aluno {
 
     private Long id;
     private String nomeAluno;
+
+    @ManyToOne
+    @JoinColumn(name = "idcurso")
+    private Curso curso;
+
+    @ManyToOne
+    @JoinColumn(name = "idcidade")
+    private Cidade cidade;
+
     private Integer idCurso;
     private Integer idCidade;
 
@@ -56,12 +65,12 @@ public class Aluno {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Aluno aluno = (Aluno) o;
-        return id.equals(aluno.id) && nomeAluno.equals(aluno.nomeAluno) && idCurso.equals(aluno.idCurso) && idCidade.equals(aluno.idCidade);
+        return id.equals(aluno.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nomeAluno, idCurso, idCidade);
+        return Objects.hash(id);
     }
 }
 

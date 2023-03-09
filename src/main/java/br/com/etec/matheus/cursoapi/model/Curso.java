@@ -2,6 +2,8 @@ package br.com.etec.matheus.cursoapi.model;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,7 +14,9 @@ public class Curso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nome;
+    private String nomecurso;
+    @OneToMany(mappedBy = "curso")
+    private List<Aluno> alunoscurso = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -22,12 +26,20 @@ public class Curso {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomecurso() {
+        return nomecurso;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomecurso(String nomecurso) {
+        this.nomecurso = nomecurso;
+    }
+
+    public List<Aluno> getAlunoscurso() {
+        return alunoscurso;
+    }
+
+    public void setAlunoscurso(List<Aluno> alunoscurso) {
+        this.alunoscurso = alunoscurso;
     }
 
     @Override
@@ -35,11 +47,11 @@ public class Curso {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Curso curso = (Curso) o;
-        return id.equals(curso.id) && nome.equals(curso.nome);
+        return id.equals(curso.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome);
+        return Objects.hash(id);
     }
 }
