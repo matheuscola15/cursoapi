@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table (name = "aluno")
+@Table (name = "Aluno")
 
 
 public class Aluno {
@@ -12,21 +12,16 @@ public class Aluno {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
 
-    @OneToMany
-
     private Long id;
     private String nomeAluno;
 
     @ManyToOne
-    @JoinColumn(name = "idcurso")
+    @JoinColumn(name = "idCurso")
     private Curso curso;
 
     @ManyToOne
-    @JoinColumn(name = "idcidade")
+    @JoinColumn(name = "idCidade")
     private Cidade cidade;
-
-    private Integer idCurso;
-    private Integer idCidade;
 
     public Long getId() {
         return id;
@@ -42,22 +37,6 @@ public class Aluno {
 
     public void setNomeAluno(String nomeAluno) {
         this.nomeAluno = nomeAluno;
-    }
-
-    public Integer getIdCurso() {
-        return idCurso;
-    }
-
-    public void setIdCurso(Integer idCurso) {
-        this.idCurso = idCurso;
-    }
-
-    public Integer getIdCidade() {
-        return idCidade;
-    }
-
-    public void setIdCidade(Integer idCidade) {
-        this.idCidade = idCidade;
     }
 
     @Override

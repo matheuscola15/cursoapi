@@ -6,44 +6,34 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table (name = "cidade")
-
-
+@Table(name = "Cidade")
 public class Cidade {
-
-
-
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private Integer id;
-    private String nomecidade;
+    private Integer idCidade;
+    private String nomeCidade;
     private String uf;
+
     @OneToMany(mappedBy = "cidade")
-    private List<Aluno> alunoscidade = new ArrayList<>();
+    private List<Aluno> alunos = new ArrayList<>();
 
-
-
-    public Integer getId() {
-        return id;
+    public Integer getIdCidade() {
+        return idCidade;
+    }
+    public void setIdCidade(Integer idCidade) {
+        this.idCidade = idCidade;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public String getNomeCidade() {
+        return nomeCidade;
     }
-
-    public String getNomecidade() {
-        return nomecidade;
+    public void setNomeCidade(String nomeCidade) {
+        this.nomeCidade = nomeCidade;
     }
-
-    public void setNomecidade(String nomecidade) {
-        this.nomecidade = nomecidade;
-    }
-
     public String getUf() {
         return uf;
     }
-
     public void setUf(String uf) {
         this.uf = uf;
     }
@@ -53,11 +43,11 @@ public class Cidade {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cidade cidade = (Cidade) o;
-        return id.equals(cidade.id);
+        return idCidade.equals(cidade.idCidade);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(idCidade);
     }
 }

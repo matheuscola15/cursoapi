@@ -7,23 +7,24 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "cursos")
+@Table(name = "curso")
 
 public class Curso {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer idCurso;
     private String nomecurso;
-    @OneToMany(mappedBy = "curso")
-    private List<Aluno> alunoscurso = new ArrayList<>();
 
-    public Integer getId() {
-        return id;
+    @OneToMany(mappedBy = "curso")
+    private List<Aluno> alunos = new ArrayList<>();
+
+    public Integer getIdCurso() {
+        return idCurso;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdCurso(Integer idCurso) {
+        this.idCurso = idCurso;
     }
 
     public String getNomecurso() {
@@ -34,24 +35,16 @@ public class Curso {
         this.nomecurso = nomecurso;
     }
 
-    public List<Aluno> getAlunoscurso() {
-        return alunoscurso;
-    }
-
-    public void setAlunoscurso(List<Aluno> alunoscurso) {
-        this.alunoscurso = alunoscurso;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Curso curso = (Curso) o;
-        return id.equals(curso.id);
+        return idCurso.equals(curso.idCurso);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(idCurso);
     }
 }
