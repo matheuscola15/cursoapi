@@ -13,7 +13,7 @@ public class Aluno {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
 
     private Long id;
-    private String nomeAluno;
+    private String nomealuno;
 
     @ManyToOne
     @JoinColumn(name = "idCurso")
@@ -31,12 +31,28 @@ public class Aluno {
         this.id = id;
     }
 
-    public String getNomeAluno() {
-        return nomeAluno;
+    public String getNomealuno() {
+        return nomealuno;
     }
 
-    public void setNomeAluno(String nomeAluno) {
-        this.nomeAluno = nomeAluno;
+    public void setNomealuno(String nomealuno) {
+        this.nomealuno = nomealuno;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
 
     @Override

@@ -1,6 +1,6 @@
 Create Table Cidade(
-    idCidade int not null auto_increment primary key,
-    nomeCidade varchar(50),
+    idcidade int not null auto_increment primary key,
+    nomecidade varchar(50),
     uf varchar(50)
 );
 

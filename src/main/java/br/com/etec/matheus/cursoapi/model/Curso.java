@@ -1,6 +1,8 @@
 package br.com.etec.matheus.cursoapi.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,18 +15,19 @@ public class Curso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer idCurso;
+    private Integer idcurso;
     private String nomecurso;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "curso")
     private List<Aluno> alunos = new ArrayList<>();
 
-    public Integer getIdCurso() {
-        return idCurso;
+    public Integer getIdcurso() {
+        return idcurso;
     }
 
-    public void setIdCurso(Integer idCurso) {
-        this.idCurso = idCurso;
+    public void setIdcurso(Integer idcurso) {
+        this.idcurso = idcurso;
     }
 
     public String getNomecurso() {
@@ -35,16 +38,24 @@ public class Curso {
         this.nomecurso = nomecurso;
     }
 
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Curso curso = (Curso) o;
-        return idCurso.equals(curso.idCurso);
+        return idcurso.equals(curso.idcurso);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idCurso);
+        return Objects.hash(idcurso);
     }
 }

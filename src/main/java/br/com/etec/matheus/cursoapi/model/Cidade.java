@@ -1,5 +1,7 @@
 package br.com.etec.matheus.cursoapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,31 +13,44 @@ public class Cidade {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private Integer idCidade;
-    private String nomeCidade;
+    private Integer idcidade;
+    private String nomecidade;
     private String uf;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cidade")
     private List<Aluno> alunos = new ArrayList<>();
 
-    public Integer getIdCidade() {
-        return idCidade;
-    }
-    public void setIdCidade(Integer idCidade) {
-        this.idCidade = idCidade;
+    public Integer getIdcidade() {
+        return idcidade;
     }
 
-    public String getNomeCidade() {
-        return nomeCidade;
+    public void setIdcidade(Integer idcidade) {
+        this.idcidade = idcidade;
     }
-    public void setNomeCidade(String nomeCidade) {
-        this.nomeCidade = nomeCidade;
+
+    public String getNomecidade() {
+        return nomecidade;
     }
+
+    public void setNomecidade(String nomecidade) {
+        this.nomecidade = nomecidade;
+    }
+
     public String getUf() {
         return uf;
     }
+
     public void setUf(String uf) {
         this.uf = uf;
+    }
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
     }
 
     @Override
@@ -43,11 +58,11 @@ public class Cidade {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cidade cidade = (Cidade) o;
-        return idCidade.equals(cidade.idCidade);
+        return idcidade.equals(cidade.idcidade);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idCidade);
+        return Objects.hash(idcidade);
     }
 }
