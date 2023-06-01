@@ -3,8 +3,6 @@ package br.com.etec.matheus.cursoapi.repository.curso;
 import br.com.etec.matheus.cursoapi.model.Curso;
 import br.com.etec.matheus.cursoapi.repository.filter.CursoFilter;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.reflect.Typed;
-import org.hibernate.Criteria;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
