@@ -16,11 +16,11 @@ public class Aluno {
     private String nomealuno;
 
     @ManyToOne
-    @JoinColumn(name = "idCurso")
+    @JoinColumn(name = "idcurso")
     private Curso curso;
 
     @ManyToOne
-    @JoinColumn(name = "idCidade")
+    @JoinColumn(name = "idcidade")
     private Cidade cidade;
 
     public Long getId() {

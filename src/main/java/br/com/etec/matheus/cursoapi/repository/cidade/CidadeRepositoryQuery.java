@@ -9,5 +9,4 @@ public interface CidadeRepositoryQuery {
 
     public Page<Cidade> Filtrar(CidadeFilter cidadeFilter, Pageable pageable);
 
-
 }

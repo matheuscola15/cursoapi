@@ -15,12 +15,9 @@ public class AlunoDto {
 
     private String nomecurso;
 
-    public AlunoDto(){
-
-    }
-
-    public AlunoDto(Aluno entity, String nomecidade, String uf, String nomecurso) {
-        BeanUtils.copyProperties(entity, this);
+    public AlunoDto(Long id, String nomealuno, String nomecidade, String uf, String nomecurso) {
+        this.id = id;
+        this.nomealuno = nomealuno;
         this.nomecidade = nomecidade;
         this.uf = uf;
         this.nomecurso = nomecurso;

@@ -9,6 +9,4 @@ public interface CursoRepositoryQuery {
 
     public Page<Curso> Filtrar(CursoFilter cursoFilter, Pageable pageable);
 
-
-
 }

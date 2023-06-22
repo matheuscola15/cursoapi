@@ -85,8 +85,6 @@ public class CidadeRepositoryImpl implements CidadeRepositoryQuery{
         }
 
         return predicates.toArray(new Predicate[predicates.size()]);
-
-
     }
 
 
